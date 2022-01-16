@@ -9,6 +9,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/session"
 	configuration "github.com/jessicapeter01/piggy_bank/config"
 	"github.com/jessicapeter01/piggy_bank/database"
+	"github.com/jessicapeter01/piggy_bank/routes"
 )
 
 type App struct {
@@ -81,7 +82,9 @@ func setupRoutes(app *fiber.App) {
 	})
 
 	// connect api routes
-	// routes.ProductRoute(api.Group("/products"))
+	routes.UserRoute(api.Group("/users"))
+	routes.GoalRoute(api.Group("/goals"))
+	routes.TransactionRoute(api.Group("/transactions"))
 }
 
 // Stop the Fiber application
